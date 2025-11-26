@@ -21,7 +21,7 @@ export default function CharacterDetailScreen({ route }) {
       <Image source={{ uri: character.image }} style={styles.image} />
       <Text style={styles.name}>{character.name}</Text>
       <Text style={styles.detail}>Status: {character.status === 'Alive' ? 'Vivo' : character.status === 'Dead' ? 'Morto' : 'Desconhecido'}</Text>
-      <Text style={styles.detail}>Espécie: {character.species}</Text>
+      <Text style={styles.detail}>Espécie: {character.species=== 'Human' ? 'Humano': item.species === 'Alien' ? 'Alien':''}</Text>
       <Text style={styles.detail}>Gênero: {character.gender === 'Male' ? 'Masculino' : character.gender === 'Female' ? 'Feminino' : 'Outro'}</Text>
       <Text style={styles.detail}>Origem: {character.origin.name}</Text>
       <Text style={styles.detail}>Local Atual: {character.location.name}</Text>

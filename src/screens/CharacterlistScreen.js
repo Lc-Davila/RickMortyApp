@@ -24,6 +24,8 @@ export default function CharacterListScreen({ navigation }) {
       <FlatList
         data={characters}
         keyExtractor={(item) => item.id.toString()}
+        showsVerticalScrollIndicator={true}
+        contentContainerStyle={{ paddingBottom: 20 }}
         renderItem={({ item }) => (
           <TouchableOpacity
             style={styles.card}
@@ -32,8 +34,8 @@ export default function CharacterListScreen({ navigation }) {
             <Image source={{ uri: item.image }} style={styles.image} />
             <View>
               <Text style={styles.name}>{item.name}</Text>
-              <Text>Status: {item.status }</Text>
-              <Text>Espécie: {item.species}</Text>
+              <Text style={styles.detail}>Status: {item.status === 'Alive' ? 'Vivo' : item.status === 'Dead' ? 'Morto' : 'Desconhecido'}</Text>
+              <Text style={styles.detail}>Espécie: {item.species === 'Human' ? 'Humano': item.species === 'Alien' ? 'Alien':''}</Text>
             </View>
           </TouchableOpacity>
         )}
@@ -46,5 +48,6 @@ const styles = StyleSheet.create({
   container: { flex: 1, padding: 10, backgroundColor: '#222' },
   card: { flexDirection: 'row', backgroundColor: '#333', borderRadius: 8, padding: 10, marginVertical: 5 },
   image: { width: 80, height: 80, borderRadius: 8, marginRight: 10 },
-  name: { color: '#00ff00', fontSize: 16},
+  name: { color: '#00ff00', fontSize: 16 },
+  detail: { color: '#fff' },
 });
